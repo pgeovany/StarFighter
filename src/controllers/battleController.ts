@@ -8,10 +8,9 @@ async function battle(req: Request, res: Response) {
 
   try {
     const result = await battleService.battle(firstUser, secondUser);
-    res.send(result).status(200);
+    res.send(result).status(httpStatus.OK);
   } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
+    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
